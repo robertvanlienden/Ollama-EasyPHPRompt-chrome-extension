@@ -14,7 +14,7 @@ export function populateDropdown() {
     const dropdown = document.getElementById('recordDropdown');
 
     // Clear previous options
-    dropdown.innerHTML = '<option value="">Select a record</option>';
+    dropdown.innerHTML = '';
 
     // Populate dropdown with records
     records['hydra:member'].forEach(record => {
