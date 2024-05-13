@@ -21,3 +21,6 @@ Simply open the Chrome Extension from you extensions, and drop in some text + yo
 
 ## Logo
 Logo created with this [Logo model for Stable Diffusion](https://huggingface.co/artificialguybr/LogoRedmond-LogoLoraForSDXL-V2/tree/main).
+
+## Donations
+Want to support me creating stuff like this? Consider donating with [PayPal](https://www.paypal.me/robertvanlienden).
