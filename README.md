@@ -9,7 +9,7 @@ This is a Chrome extension to work with [https://github.com/robertvanlienden/Oll
 
 ### Use cases
 - Summarize text you see on internet
-- Explain things you see on
+- Simply let Ollama do tasks with Ollama EasyPHPRompt
 
 ## Installation
 1. Clone this repository
