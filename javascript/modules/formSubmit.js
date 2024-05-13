@@ -1,51 +1,55 @@
 import {API_URL} from "../app.js";
 let LAST_REQUEST_ID = null;
 
-document.getElementById('myForm').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Prevent form submission
+const form = document.getElementById('myForm');
 
-    // Get selected record value
-    let selectedRecordId = document.getElementById('recordDropdown').value;
+if (form) {
+    form.addEventListener('submit', async function(event) {
+        event.preventDefault(); // Prevent form submission
 
-    // Get data from textarea
-    let data = document.getElementById('dataTextarea').value;
+        // Get selected record value
+        let selectedRecordId = document.getElementById('recordDropdown').value;
 
-    // Prepare data for POST request
-    let postData = {
-        data: data,
-    };
+        // Get data from textarea
+        let data = document.getElementById('dataTextarea').value;
 
-    try {
-        let response = await fetch(API_URL + "/api/prompt_types/request/" + selectedRecordId, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/ld+json'
-            },
-            body: JSON.stringify(postData)
-        });
+        // Prepare data for POST request
+        let postData = {
+            data: data,
+        };
 
-        if (response.ok) {
-            let responseJsonData = await response.json();
+        try {
+            let response = await fetch(API_URL + "/api/prompt_types/request/" + selectedRecordId, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/ld+json'
+                },
+                body: JSON.stringify(postData)
+            });
 
-            LAST_REQUEST_ID = responseJsonData['ollamaRequest'].id;
+            if (response.ok) {
+                let responseJsonData = await response.json();
 
-            // Construct the message with the link
-            let message = 'Successfully submitted. <a href="' + API_URL + '/ollama/request/' + LAST_REQUEST_ID + '" target="_blank">View your request here</a>';
+                LAST_REQUEST_ID = responseJsonData['ollamaRequest'].id;
 
-            // Show success message for 5 seconds
-            let alertDiv = document.getElementById('alert');
-            alertDiv.innerHTML = message;
-            alertDiv.style.display = "block";
-            setTimeout(() => {
-                alertDiv.style.display = "none";
-            }, 5000);
+                // Construct the message with the link
+                let message = 'Successfully submitted. <a href="' + API_URL + '/ollama/request/' + LAST_REQUEST_ID + '" target="_blank">View your request here</a>';
 
-            // Reset the form
-            document.getElementById('myForm').reset();
-        } else {
-            console.error("POST request failed:", response.statusText);
+                // Show success message for 5 seconds
+                let alertDiv = document.getElementById('alert');
+                alertDiv.innerHTML = message;
+                alertDiv.style.display = "block";
+                setTimeout(() => {
+                    alertDiv.style.display = "none";
+                }, 5000);
+
+                // Reset the form
+                document.getElementById('myForm').reset();
+            } else {
+                console.error("POST request failed:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Error:", error);
         }
-    } catch (error) {
-        console.error("Error:", error);
-    }
-});
+    });
+}

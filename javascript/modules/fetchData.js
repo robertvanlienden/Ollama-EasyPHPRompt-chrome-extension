@@ -1,13 +1,13 @@
 import {API_URL} from "../app.js";
 
-let records = null;
+let promptTypes = null;
 
 export async function getPromptTypes() {
     const res = await fetch(API_URL + "/api/prompt_types?order%5Bname%5D=asc\n");
-    records = await res.json();
+    promptTypes = await res.json();
     populateDropdown();
 
-    return records;
+    return promptTypes;
 }
 
 export function populateDropdown() {
@@ -16,8 +16,8 @@ export function populateDropdown() {
     // Clear previous options
     dropdown.innerHTML = '';
 
-    // Populate dropdown with records
-    records['hydra:member'].forEach(record => {
+    // Populate dropdown with promptTypes
+    promptTypes['hydra:member'].forEach(record => {
         const option = document.createElement('option');
         option.value = record.id;
         option.textContent = record.name;
