@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Dropdown</title>
+</head>
+<body style="min-width: 450px";>
+<h1>Create some prompt for Ollama EasyPHPrompt below</h1>
+<form id="myForm">
+    <label for="dataTextarea">Data:</label><br>
+    <textarea id="dataTextarea" name="data" rows="8" cols="50"></textarea><br><br>
+
+    <label for="recordDropdown">Select a prompt type:</label><br>
+    <select id="recordDropdown" name="record">
+        <option value="">Select a prompt</option>
+    </select><br><br>
+
+    <button type="submit">Submit</button>
+</form>
+
+<p>
+    <button id="reloadButton">Reload prompt types</button>
+</p>
+
+<script src="javascript/app.js" type="module"></script>
+</body>
+</html>
