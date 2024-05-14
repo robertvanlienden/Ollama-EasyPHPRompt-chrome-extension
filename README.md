@@ -1,5 +1,4 @@
 # Ollama EasyPHPRompt - Chrome Extension
-## In development - Manual installation required
 ![](images/img.png)
 
 This is a Chrome extension to work with [https://github.com/robertvanlienden/Ollama-EasyPHPRompt](https://github.com/robertvanlienden/Ollama-EasyPHPRompt).
@@ -12,6 +11,11 @@ This is a Chrome extension to work with [https://github.com/robertvanlienden/Oll
 - Simply let Ollama do tasks with Ollama EasyPHPRompt
 
 ## Installation
+### Chrome Web Store
+1. Download the Chrome plugin from https://chromewebstore.google.com/detail/ollama-easyphprompt/gglibboocpmpafdkalnnbeohgbmaeibp?hl=nl
+3. Make sure you have [robertvanlienden/Ollama-EasyPHPRompt](https://github.com/robertvanlienden/Ollama-EasyPHPRompt) running
+
+### Development
 1. Clone this repository
 2. Load the "unpacked" extension in `chrome://extensions` (Enable development tools, [see this link for more information](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) ) 
 3. Make sure you have [robertvanlienden/Ollama-EasyPHPRompt](https://github.com/robertvanlienden/Ollama-EasyPHPRompt) running
